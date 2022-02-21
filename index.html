@@ -97,8 +97,17 @@ var prueba = function(){
 		];
 
 		embedded_svc.addEventHandler("onChatRequestSuccess", function(data) {
-		    console.log("onChatRequestSuccess event was fired);
+			console.log("onChatRequestSuccess event was fired");
 		});
+		
+		embedded_svc.addEventHandler("onChatEstablished", function(data) {
+			console.log("onChatEstablished event was fired.  liveAgentSessionKey was " + data.liveAgentSessionKey);
+		});
+		
+		embedded_svc.addEventHandler("onClickSubmitButton", function(data) {
+		    console.log("onClickSubmitButton event was fired.  liveAgentSessionKey was " + data.liveAgentSessionKey);
+		});
+		
 		embedded_svc.init(
 			'https://grupotagle--dev.my.salesforce.com',
 			'https://dev-tagle.cs196.force.com/liveAgentSetupFlow',
