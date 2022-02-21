@@ -117,10 +117,14 @@ var prueba = function(){
 		s.setAttribute('src', 'https://grupotagle--dev.my.salesforce.com/embeddedservice/5.0/esw.min.js');
 		s.onload = function() {
 			initESW(null);
+			console.log('Cuando carga');
+			prueba();
 		};
 		document.body.appendChild(s);
 	} else {
 		initESW('https://service.force.com');
+		console.log('Cuando no carga');
+		prueba();
 	}
 </script>
 	</body>
