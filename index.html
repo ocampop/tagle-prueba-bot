@@ -34,7 +34,7 @@
 	<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 	<script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
-		console.log('Se entró al onload');
+		console.log('Se entró al initESW');
 		embedded_svc.settings.displayHelpButton = true; //O falso
 		embedded_svc.settings.language = ''; //Por ejemplo, introduzca 'en' o 'en-US'
 
@@ -109,10 +109,12 @@
 		s.setAttribute('src', 'https://grupotagle--uat.my.salesforce.com/embeddedservice/5.0/esw.min.js');
 		s.onload = function() {
 			initESW(null);
+			console.log('Se entró al no embedded');
 		};
 		document.body.appendChild(s);
 	} else {
 		initESW('https://service.force.com');
+		console.log('Se entró al embedded');
 	}
 	</script>
 	</body>
