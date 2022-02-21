@@ -108,6 +108,7 @@
 		s.setAttribute('src', 'https://grupotagle--uat.my.salesforce.com/embeddedservice/5.0/esw.min.js');
 		s.onload = function() {
 			initESW(null);
+			console.log('Se entró al onload');
 		};
 		document.body.appendChild(s);
 	} else {
