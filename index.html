@@ -96,7 +96,9 @@ var prueba = function(){
 			}
 		];
 
-
+		embedded_svc.addEventHandler("onChatRequestSuccess", function(data) {
+		    console.log("onChatRequestSuccess event was fired);
+		});
 		embedded_svc.init(
 			'https://grupotagle--dev.my.salesforce.com',
 			'https://dev-tagle.cs196.force.com/liveAgentSetupFlow',
