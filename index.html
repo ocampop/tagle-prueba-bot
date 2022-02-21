@@ -29,30 +29,28 @@
 	.embeddedServiceHelpButton .helpButton .uiButton:focus {
 		outline: 1px solid #005290;
 	}
-	</style>
+</style>
 
-	<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
-	<script type='text/javascript'>
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+<script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
-		console.log('Se entró al initESW');
-		embedded_svc.settings.displayHelpButton = true; //O falso
-		embedded_svc.settings.language = ''; //Por ejemplo, introduzca 'en' o 'en-US'
+		embedded_svc.settings.displayHelpButton = true; //Or false
+		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
 
-		//embedded_svc.settings.defaultMinimizedText = '...'; //(Toma como valor predeterminado Sesión de chat con un experto)
-		//embedded_svc.settings.disabledMinimizedText = '...'; //(Toma como valor predeterminado Agente sin conexión)
+		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
 
-		//embedded_svc.settings.loadingText = ''; //(Toma como valor predeterminado Cargando)
-		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Establece el dominio para su desarrollo de modo que los visitantes puedan navegar por subdominios durante una sesión de chat)
+		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
 
-		// Configuración para Chat
-		embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+		// Settings for Chat
+		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
 			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
 			// Returns a valid button ID.
-			console.log('entró al método posible');
-		};
-		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Establece la cumplimentación automática de los campos del formulario previo al chat
-		//embedded_svc.settings.fallbackRouting = []; //Una matriz de identificadores de botones, de usuario o userId_buttonId
-		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Toma como valor predeterminado la opción Contacto)
+		//};
+		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
+		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
+		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
 
 		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
 		embedded_svc.settings.entryFeature = 'LiveAgent';
@@ -88,17 +86,19 @@
 				"transcriptFields": ["Origen__c"]
 			}
 		];
+
+
 		embedded_svc.init(
-			'https://grupotagle--uat.my.salesforce.com',
-			'https://uat-tagle.cs219.force.com/liveAgentSetupFlow',
+			'https://grupotagle--dev.my.salesforce.com',
+			'https://dev-tagle.cs196.force.com/liveAgentSetupFlow',
 			gslbBaseURL,
-			'00D8G0000008g6p',
+			'00D030000008kfi',
 			'Chat_Bot',
 			{
-				baseLiveAgentContentURL: 'https://c.la5-c1cs-ia4.salesforceliveagent.com/content',
-				deploymentId: '5728G000000CaTw',
-				buttonId: '5738G000000CaVx',
-				baseLiveAgentURL: 'https://d.la5-c1cs-ia4.salesforceliveagent.com/chat',
+				baseLiveAgentContentURL: 'https://c.la2-c1cs-ia4.salesforceliveagent.com/content',
+				deploymentId: '57203000000CaXt',
+				buttonId: '573030000008OV4',
+				baseLiveAgentURL: 'https://d.la2-c1cs-ia4.salesforceliveagent.com/chat',
 				eswLiveAgentDevName: 'Chat_Bot',
 				isOfflineSupportEnabled: false
 			}
@@ -107,16 +107,14 @@
 
 	if (!window.embedded_svc) {
 		var s = document.createElement('script');
-		s.setAttribute('src', 'https://grupotagle--uat.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.setAttribute('src', 'https://grupotagle--dev.my.salesforce.com/embeddedservice/5.0/esw.min.js');
 		s.onload = function() {
 			initESW(null);
-			console.log('Se entró al no embedded');
 		};
 		document.body.appendChild(s);
 	} else {
 		initESW('https://service.force.com');
-		console.log('Se entró al embedded');
 	}
-	</script>
+</script>
 	</body>
 	</html>
