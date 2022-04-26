@@ -16,15 +16,9 @@
 		
 	</head>
 	<body>
-	<style type='text/css'>
-	.embeddedServiceHelpButton .helpButton .uiButton {
-		background-color: #005290;
-		font-family: "Arial", sans-serif;
-	}
-	.embeddedServiceHelpButton .helpButton .uiButton:focus {
-		outline: 1px solid #005290;
-	}
-	</style>
+		<div id="lightningLocator">	
+	</body>
+		
 	<script src="https://devsch-lentesrk.cs123.force.com/scheduler/lightning/lightning.out.js"></script>
 	<script>
 	    $Lightning.use("runtime_appointmentbooking:lightningOutGuest",
@@ -32,7 +26,7 @@
 		    $Lightning.createComponent(
 			"lightning:flow",    // top-level component of your app
 			{ },    // attributes to set on the component when created
-			"body",    // the DOM location to insert the component
+			"lightningLocator",    // the DOM location to insert the component
 			function(component) {            // API name of the Flow
 			    component.startFlow(”RyKScheduler”);
 			}
@@ -40,6 +34,4 @@
 		},    'https://devsch-lentesrk.cs123.force.com/scheduler/'  // Site endpoint
 	    );
 	</script>
-	
-	</body>
 	</html>
